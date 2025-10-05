@@ -5,6 +5,7 @@ const dotenv = require('dotenv').config();
 const { connectDB, sequelize } = require('./config/db'); 
 const Room = require('./models/Room'); 
 const roomRoutes = require('./routes/roomRoutes');
+const userRoutes = require('./routes/userRoutes');
 
 const PORT = 5000;
 const app = express();
@@ -12,6 +13,7 @@ const app = express();
 // Middleware to allow the server to read JSON data from the client
 app.use(express.json()); 
 app.use('/api/rooms', roomRoutes);
+app.use('/api/users', userRoutes);
 
 // Function to initialize the database connection and sync models
 const initializeApp = async () => {
